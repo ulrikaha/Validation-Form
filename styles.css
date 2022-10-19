@@ -76,7 +76,6 @@ body {
   color: red;
 }
 
-
-.validation-feedback ~ .d-none{
-  display: block;
+.d-none {
+  display: none;
 }
