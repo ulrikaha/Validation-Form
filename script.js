@@ -127,10 +127,6 @@ form.addEventListener('submit', e => {
         }
     }
 
-    console.log('errors',errors)
-
-
-
     if (errors.includes(false)) {
         errorMessage.classList.remove('d-none')
         console.log('Something is wrong!')
@@ -141,8 +137,6 @@ form.addEventListener('submit', e => {
         const user = new User(firstName.value, lastName.value, email.value, password.value)
         console.log(user.userSum());
     }
-
-
 });
 
 class User {
