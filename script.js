@@ -146,7 +146,7 @@ form.addEventListener('submit', e => {
       //--If array includes no errors = success, hide the d-none, shows user in console.log--
     else {
         errorMessage.classList.add('d-none');
-        console.log('Success2')
+        console.log('Success')
         const user = new User(firstName.value, lastName.value, email.value, password.value)
         console.log(user.userSum());
     }
@@ -167,7 +167,6 @@ class User {
 
 //--Success message in console.log--
 const setSuccess = (input) => {
-    console.log('success')
     return true;
 }
 
