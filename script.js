@@ -1,3 +1,5 @@
+//---Declare references to html elements---
+
 const form = document.querySelector('#validationForm');
 const firstName = document.querySelector('#firstName');
 const lastName = document.querySelector('#lastName');
@@ -9,11 +11,10 @@ const errorMessage = document.querySelector('#errorMessage');
 
 const regEx2 = /^([^0-9]*)$/
 
+
+//---Validate text---
 const validateText = (id) => {
     const input = document.querySelector(id)
-
-    console.log(input)
-
 
     if (input.value.trim() === '') {
         console.log('Name can not be empty')
@@ -33,6 +34,7 @@ const validateText = (id) => {
     return setSuccess(input)
 }
 
+//---Validate email---
 const validateEmail = (id) => {
     const email = document.querySelector(id)
 
@@ -52,6 +54,8 @@ const validateEmail = (id) => {
     return setSuccess(email)
 }
 
+
+//---Validate password---
 const validatePassword = (id) => {
     const password = document.querySelector(id)
 
@@ -69,6 +73,8 @@ const validatePassword = (id) => {
     return setSuccess(password)
 }
 
+
+//---Validate repeat password---
 const validateRepeatPassword = (id) => {
     const repeatPassword = document.querySelector(id)
 
@@ -85,6 +91,8 @@ const validateRepeatPassword = (id) => {
     return setSuccess(repeatPassword)
 }
 
+
+//---Validate checkbox---
 const validateCheckbox = (id) => {
     const checkbox = document.querySelector(id)
 
@@ -100,12 +108,15 @@ const validateCheckbox = (id) => {
 
  
 }
-
+//---Event listnener / Prevent browser to reload---
 form.addEventListener('submit', e => {
     e.preventDefault();
 
+
+    //--Errors array--
     const errors = [];
 
+    //--Check for errors in the form--
     for (let i = 0; i < form.length; i++) {
 
         const inputId = '#' + form[i].id
@@ -127,10 +138,12 @@ form.addEventListener('submit', e => {
         }
     }
 
+        //--If array inclues false = error--
     if (errors.includes(false)) {
         errorMessage.classList.remove('d-none')
-        console.log('Something is wrong!')
+        console.log(errors)
     }
+      //--If array includes no errors = success, hide the d-none, shows user in console.log--
     else {
         errorMessage.classList.add('d-none');
         console.log('Success2')
@@ -139,6 +152,7 @@ form.addEventListener('submit', e => {
     }
 });
 
+//-- User class --
 class User {
     constructor(firstName, lastName, email, password) {
         this.firstName = firstName
@@ -151,11 +165,13 @@ class User {
     }
 }
 
+//--Success message in console.log--
 const setSuccess = (input) => {
-    console.log('success1')
+    console.log('success')
     return true;
 }
 
+//--Error message in console.log + shows error message d-none--
 const setError = (input) => {
     errorMessage.classList.add('d-none');
     input.focus();
