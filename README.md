@@ -1,1 +1,1 @@
-Java Script project validation of a form
+School project @ KYH - Validation of a form using JavaScript 
