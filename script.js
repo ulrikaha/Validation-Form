@@ -38,7 +38,10 @@ const validateText = (id) => {
 const validateEmail = (id) => {
     const email = document.querySelector(id)
 
-    const regEx1 = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+    const regEx1 = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/ 
+
+
+    
 
     if (email.value.trim() === '') {
         console.log('Email can not be blank')
@@ -83,7 +86,7 @@ const validateRepeatPassword = (id) => {
         console.log('Repeat password can not be blank')
         return setError(repeatPassword)
     }
-    else if (!repeatPassword === password) {
+    else if (repeatPassword.value !== password.value) {
         console.log('The passwords do not match')
         return setError(repeatPassword)
     }
@@ -96,7 +99,7 @@ const validateRepeatPassword = (id) => {
 const validateCheckbox = (id) => {
     const checkbox = document.querySelector(id)
 
-    checkBox.addEventListener('submit', function (e) {
+    checkbox.addEventListener('submit', function (e) {
         if (!checkbox.checked) {
             console.log('Checkbox is not checked')
             return setError(checkbox)
